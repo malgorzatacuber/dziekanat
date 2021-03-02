@@ -10,4 +10,5 @@ Utils::addRoute('home', 'HomeController');
 Utils::addRoute('login', 'LoginController');
 Utils::addRoute('logout', 'LoginController');
 Utils::addRoute('main', 'MainController');
+Utils::addRoute('marks', 'MarkController');
 Utils::addRoute('users', 'UsersController');
