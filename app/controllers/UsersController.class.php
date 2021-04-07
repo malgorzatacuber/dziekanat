@@ -103,23 +103,19 @@ class UsersController
 
     public function action_users()
     {
-        // Jesli uzytkownik nie jest zalogowany LUB jesli rola uzytkownika to nie ADMIN poinformuj go o braku uprawnien do stworzenia (rejestracji) uzytkownika
         if ($this->user == null || $this->user['role'] != ADMIN) {
             App::getSmarty()->display("forbidden.tpl");
         }
 
-        // Jesli jest zdefiniowane jakies pole w formularzu rejestracji (np. name jak ponizej) i formularz przeszedl walidacje (patrz: metoda validate) - zarejestruj uzytkownika
         if (isset($_POST['name']) && $this->validate()) {
             $this->register_user();
             Utils::addInfoMessage('Pomyślnie dodano użytkownika');
         }
 
-        // pobierz liste wszystkich zarejestrowanych uzytkownikow
         $users = $this->get_all_users();
 
         App::getSmarty()->assign("register_url", App::getConf()->app_url . "/users");
         App::getSmarty()->assign("users", $users);
-
         App::getSmarty()->display("users.tpl");
     }
 }

@@ -18,5 +18,15 @@
                 </ul>
             </div>
         {/if}
+
+        {* jesli mamy jakies komunikaty wyswietl je uzytkownikowi *}
+        {if $statements}
+            <h2>Komunikaty</h2>
+            <ul>
+                {foreach from=$statements item=statement}
+                    <li>{$statement['message']}</li>
+                {/foreach}
+            </ul>
+        {/if}
     </div>
 {/block}

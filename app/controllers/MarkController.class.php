@@ -12,7 +12,7 @@ use core\Validator;
 class MarkController
 {
     private $user;  // uzytkownik z sesji
-    private $new_mark_data = []; // dane nowej oceny (z forumlarza na stronie)
+    private $new_mark_data = []; // dane nwej oceny (z forumlarza na stronie)
 
     function __construct()
     {
